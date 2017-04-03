@@ -1,0 +1,25 @@
+<p>
+  todos works is working without directive!
+</p>
+
+<div *ngIf="appState == 'default'">
+  <h3>Add Todo</h3>
+  <form (submit)= "addTodo()">
+    <input type="text" name="text"  [(ngModel)] = "text">
+  </form>
+</div>
+
+<div *ngIf="appState == 'edit'">
+  <h3>Update Todo</h3>
+  <form (submit)= "updateTodo()">
+    <input type="text" name="text"  [(ngModel)] = "text">
+  </form>
+</div>
+
+
+<h3>Todo list<h3>
+<ul>
+  <li *ngFor="let todo of todos">
+    <span (click)= 'editTodo(todo)' > {{todo.text}} </span> <button (click)="deleteTodo(todo.text)">X</button>
+  </li>
+</ul>
